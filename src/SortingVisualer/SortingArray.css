@@ -1,0 +1,14 @@
+.divbar{
+    background: black;
+    max-height: 50vh;
+    
+    
+}
+.div{
+    background-color: blue;    
+    height: 10vh;
+    float: left;
+    margin: 1px;
+    padding: 0px;
+
+}

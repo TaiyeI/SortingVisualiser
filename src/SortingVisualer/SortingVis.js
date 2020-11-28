@@ -24,6 +24,7 @@ function SortingVis(){
                 <label for='Asize'>Array Size</label>
                 <input type="text" id="Asize" name = "Asize"></input>
             </form>
+            
 
             
 

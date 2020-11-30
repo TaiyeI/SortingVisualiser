@@ -13,6 +13,7 @@ function SortingArray(props){
         divs.push(<div className="div" style={{width: (100/props.arraySize - 0.4)+ "vw" , height: (0.6*divHeight) + "vh"}}>
         <p1></p1>
         </div>) 
+        
        
     }
 

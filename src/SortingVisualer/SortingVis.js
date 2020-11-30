@@ -4,26 +4,37 @@ import SortingArray from './SortingArray'
 function SortingVis(){
 
     const sortSpeed = 1;
+    //var num;
 
-    const [arraySize, setarraySize] = useState(5);
+    const [arraySize, setarraySize] = useState();
     
 
     const RandomArray = () =>{
-        setarraySize(5 + Math.floor(Math.random()*100));
+        setarraySize(2 + Math.floor(Math.random()*100));
         console.log(arraySize);
     }
     
+    const arraychange = (num) =>{
+        if (num > 2 && num < 100){
+            setarraySize(num);
+        }
+        else{
+            setarraySize(arraySize);
+        }
+    }
+
+    
+
+
 
     return(
         <div>
             <h2>Sorting Visualiser</h2>
             <p1>Words describing the project</p1>
             <button onClick={RandomArray}>Generate Random Array</button>
-            <button>Sort Array</button>
-            <form>
-                <label for='Asize'>Array Size</label>
-                <input type="text" id="Asize" name = "Asize"></input>
-            </form>
+            <label>Array Size</label>
+            <input type="text" onChange={e => {arraychange(e.target.value)}}></input>
+
             
 
             

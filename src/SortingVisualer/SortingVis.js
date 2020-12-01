@@ -55,7 +55,7 @@ function SortingVis(){
                     tempy2[i+1] = temp;
                     //console.log(DataArray);
                     console.log(tempy2);
-                    
+                    SetDataArray(Array.from(tempy2));
                     await WaitTime(1000);
                     //SetDataArray()
                 }
@@ -63,7 +63,6 @@ function SortingVis(){
             }        
             //unsorted = false
         }
-        SetDataArray(tempy2);
     }
 
 

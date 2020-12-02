@@ -91,10 +91,10 @@ function SortingVis(){
             <label>Algorithms:</label>
             <select onChange={(event) => ChangeAlgorithm(event.target.value)} 
                     value = {currentAlgorithm}>
-                <option value="BubbleSort">BubbleSort</option>
-                <option value="BubbleSort">BubbleSort</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
+                <option value="0">BubbleSort</option>
+                <option value="1">MergeSort</option>
+                <option value="2">QuickSort</option>
+                <option value="3">InsertionSort</option>
             </select>
             <label>Array Size</label>
             <input type="text" onChange={e => {arraychange(e.target.value)}}></input>

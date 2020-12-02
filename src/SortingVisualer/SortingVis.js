@@ -6,6 +6,8 @@ function SortingVis(){
     const sortSpeed = 1;
     const [DataArray, SetDataArray] = useState([]);
     const [checkcolour, setcheckcolour] = useState([]);
+    const [sortedColour, setsortedColour] = useState([]);
+    const [currentAlgorithm, setCurrentAlgorithm] = useState('BubbleSort')
     var arraySize = 5
     
 
@@ -38,6 +40,19 @@ function SortingVis(){
         });
     }
     
+    const ChangeAlgorithm = (newalgo) => {
+        setCurrentAlgorithm(newalgo)
+      
+    }
+    const RunAlgorithm = () => {
+        if (currentAlgorithm == "BubbleSort"){
+            BubbleSort()
+        }
+        else{
+            console.log(currentAlgorithm);
+        }
+
+    }
 
     const BubbleSort = async() =>{
         var unsorted = true;
@@ -48,25 +63,22 @@ function SortingVis(){
                 var colourtemp = [];
                 colourtemp.push(DataArray[i], DataArray[i+1])
                 setcheckcolour(Array.from(colourtemp));
+                console.log(setcheckcolour);
                 await WaitTime(100);
                 if (DataArray[i] > DataArray[i+1]){
                     unsorted = true;
-                    //colour them
-                    //wait
                     var tempDataArray = DataArray;
                     var swaptemp = tempDataArray[i];
                     tempDataArray[i] = tempDataArray[i+1];
                     tempDataArray[i+1] = swaptemp;
                     //console.log(DataArray);
-                    console.log(tempDataArray);
+                    //console.log(tempDataArray);
                     SetDataArray(Array.from(tempDataArray));
                     await WaitTime(100);
-                    //discolour them
-                    setcheckcolour([]);
                 } 
             }        
         }
-        //var sortedColour = []
+        //setsortedColour(Array.from(DataArray));
     }
 
 
@@ -75,12 +87,21 @@ function SortingVis(){
         <div>
             <h2>Sorting Visualiser</h2>
             <p1>Words describing the project</p1>
-            <button onClick={RandomArray}>Generate Random Array</button>
+            <button onClick={RunAlgorithm}>Start</button>  
+            <label>Algorithms:</label>
+            <select onChange={(event) => ChangeAlgorithm(event.target.value)} 
+                    value = {currentAlgorithm}>
+                <option value="BubbleSort">BubbleSort</option>
+                <option value="BubbleSort">BubbleSort</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+            </select>
             <label>Array Size</label>
             <input type="text" onChange={e => {arraychange(e.target.value)}}></input>
-            <button onClick={BubbleSort}>Bubble Sort</button>  
+            <button onClick={RandomArray}>Generate Random Array</button>
+            
 
-            <SortingArray  DataArray={DataArray}  checkcolour={checkcolour}/>
+            <SortingArray  DataArray={DataArray}  checkcolour={checkcolour} sortedColour={sortedColour}/>
 
         </div>
     );

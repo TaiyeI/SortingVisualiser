@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import SortingArray from './SortingArray'
+import './SortingVis.css'
  
 function SortingVis(){
 
@@ -45,7 +46,7 @@ function SortingVis(){
       
     }
     const RunAlgorithm = () => {
-        if (currentAlgorithm == "BubbleSort"){
+        if (currentAlgorithm === "0"){
             BubbleSort()
         }
         else{
@@ -85,22 +86,26 @@ function SortingVis(){
 
     return(
         <div>
-            <h2>Sorting Visualiser</h2>
-            <p1>Words describing the project</p1>
-            <button onClick={RunAlgorithm}>Start</button>  
-            <label>Algorithms:</label>
-            <select onChange={(event) => ChangeAlgorithm(event.target.value)} 
-                    value = {currentAlgorithm}>
-                <option value="0">BubbleSort</option>
-                <option value="1">MergeSort</option>
-                <option value="2">QuickSort</option>
-                <option value="3">InsertionSort</option>
-            </select>
-            <label>Array Size</label>
-            <input type="text" onChange={e => {arraychange(e.target.value)}}></input>
-            <button onClick={RandomArray}>Generate Random Array</button>
-            
-
+            <div className="OptionsMenu">
+                    <div>
+                        <h2>Sorting Visualiser</h2>
+                        <p>Words describing the project</p>
+                    </div>
+                    <div className="Interactables">
+                        <button onClick={RunAlgorithm}>Start</button>  
+                        <label>Algorithms:</label>
+                        <select onChange={(event) => ChangeAlgorithm(event.target.value)} 
+                                value = {currentAlgorithm}>
+                            <option value="0">BubbleSort</option>
+                            <option value="1">MergeSort</option>
+                            <option value="2">QuickSort</option>
+                            <option value="3">InsertionSort</option>
+                        </select>
+                        <label>Array Size</label>
+                        <input type="text" onChange={e => {arraychange(e.target.value)}}></input>
+                        <button onClick={RandomArray}>Generate Random Array</button>
+                    </div>
+            </div>
             <SortingArray  DataArray={DataArray}  checkcolour={checkcolour} sortedColour={sortedColour}/>
 
         </div>

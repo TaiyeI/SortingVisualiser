@@ -22,9 +22,7 @@ function SortingArray(props){
 
     //console.log(props.DataArray);
     return(
-        <div>
-            <div className="divbar">{CreateDivs()}</div>
-        </div>
+        <div className="divbar">{CreateDivs()}</div>
     )
 
     

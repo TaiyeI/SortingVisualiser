@@ -1,0 +1,17 @@
+
+.OptionsMenu{
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    background-color: purple;
+
+}
+
+button{
+    height: 5vh;
+}
+
+.Interactables{
+    height: 5vh;
+    margin-top: 2.5vh;
+}

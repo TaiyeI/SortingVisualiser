@@ -5,10 +5,8 @@ function SortingVis(){
 
     const sortSpeed = 1;
     const [DataArray, SetDataArray] = useState([]);
+    const [checkcolour, setcheckcolour] = useState([]);
     var arraySize = 5
-    
-    //var divs = [];
-
     
 
     const RandomArray = () =>{
@@ -47,22 +45,28 @@ function SortingVis(){
         while (unsorted === true){
             unsorted = false;
             for (var i=0; i < x; i++){
+                var colourtemp = [];
+                colourtemp.push(DataArray[i], DataArray[i+1])
+                setcheckcolour(Array.from(colourtemp));
+                await WaitTime(100);
                 if (DataArray[i] > DataArray[i+1]){
                     unsorted = true;
-                    var tempy2 = DataArray;
-                    var temp = tempy2[i];
-                    tempy2[i] = tempy2[i+1];
-                    tempy2[i+1] = temp;
+                    //colour them
+                    //wait
+                    var tempDataArray = DataArray;
+                    var swaptemp = tempDataArray[i];
+                    tempDataArray[i] = tempDataArray[i+1];
+                    tempDataArray[i+1] = swaptemp;
                     //console.log(DataArray);
-                    console.log(tempy2);
-                    SetDataArray(Array.from(tempy2));
-                    await WaitTime(1000);
-                    //SetDataArray()
-                }
-                //console.log(unsorted);   
+                    console.log(tempDataArray);
+                    SetDataArray(Array.from(tempDataArray));
+                    await WaitTime(100);
+                    //discolour them
+                    setcheckcolour([]);
+                } 
             }        
-            //unsorted = false
         }
+        //var sortedColour = []
     }
 
 
@@ -76,7 +80,7 @@ function SortingVis(){
             <input type="text" onChange={e => {arraychange(e.target.value)}}></input>
             <button onClick={BubbleSort}>Bubble Sort</button>  
 
-            <SortingArray arraySize={arraySize} DataArray={DataArray}/>
+            <SortingArray  DataArray={DataArray}  checkcolour={checkcolour}/>
 
         </div>
     );

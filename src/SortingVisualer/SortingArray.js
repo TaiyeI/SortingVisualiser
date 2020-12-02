@@ -4,13 +4,18 @@ import './SortingArray.css';
 function SortingArray(props){
 
     const CreateDivs = () => {
-        const temm = [];
+        const divarray = [];
         for (var i=0; i < props.DataArray.length; i++){
-            temm.push(<div className="div" style={{width: (100/props.DataArray.length - 0.4)+ "vw" , height: (0.6*props.DataArray[i]) + "vh"}}></div>);
-
+            if (props.checkcolour.includes(props.DataArray[i])){
+                divarray.push(<div className="div" style={{width: (100/props.DataArray.length - 0.4)+ "vw" , height: (0.6*props.DataArray[i]) + "vh", backgroundColor: "green"}}></div>);
+            }
+            else{
+                divarray.push(<div className="div" style={{width: (100/props.DataArray.length - 0.4)+ "vw" , height: (0.6*props.DataArray[i]) + "vh", backgroundColor: "blue"}}></div>);
+            }
+            
         }
 
-        return temm;
+        return divarray;
     }
 
     console.log(props.DataArray);

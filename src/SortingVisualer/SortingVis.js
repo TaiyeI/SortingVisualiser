@@ -8,7 +8,7 @@ function SortingVis(){
     const [DataArray, SetDataArray] = useState([]);
     const [checkcolour, setcheckcolour] = useState([]);
     const [sortedColour, setsortedColour] = useState([]);
-    const [currentAlgorithm, setCurrentAlgorithm] = useState('BubbleSort')
+    const [currentAlgorithm, setCurrentAlgorithm] = useState('0')
     var arraySize = 5
     
 
@@ -70,22 +70,21 @@ function SortingVis(){
         while (unsorted === true){
             unsorted = false;
             for (var i=0; i < x; i++){
-                var colourtemp = [];
-                colourtemp.push(DataArray[i], DataArray[i+1])
-                setcheckcolour(Array.from(colourtemp));
-                console.log(setcheckcolour);
+                setcheckcolour([i, i+1]);
                 await WaitTime(100);
                 if (DataArray[i] > DataArray[i+1]){
                     unsorted = true;
                     var tempDataArray = DataArray;
                     var swaptemp = tempDataArray[i];
                     tempDataArray[i] = tempDataArray[i+1];
-                    tempDataArray[i+1] = swaptemp;
-                    //console.log(DataArray);
-                    //console.log(tempDataArray);
+                    tempDataArray[i+1] = swaptemp;;
                     SetDataArray(Array.from(tempDataArray));
-                    await WaitTime(100);
-                } 
+                    //await WaitTime(100);
+                    
+                }
+                await WaitTime(300); 
+                setsortedColour([]);
+                
             }        
         }
         //setsortedColour(Array.from(DataArray));

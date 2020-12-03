@@ -46,8 +46,17 @@ function SortingVis(){
       
     }
     const RunAlgorithm = () => {
-        if (currentAlgorithm === "0"){
+        if (currentAlgorithm == "0"){
             BubbleSort()
+        }
+        if (currentAlgorithm == "1"){
+            MergeSort()
+        }
+        if (currentAlgorithm == "2"){
+            QuickSort()
+        }
+        if (currentAlgorithm == "3"){
+            InsertionSort()
         }
         else{
             console.log(currentAlgorithm);
@@ -82,6 +91,29 @@ function SortingVis(){
         //setsortedColour(Array.from(DataArray));
     }
 
+    const MergeSort = async() =>{
+        
+    }
+
+    const InsertionSort = async() =>{
+        var x = DataArray.length
+        for (var i=0; i < x; i++){
+            var tempDataArray = DataArray;
+            var current = DataArray[i];
+            while  (i>0 && tempDataArray[i-1] > current){
+                tempDataArray[i] = tempDataArray[i-1];
+                i = i-1;
+            }
+            tempDataArray[i] = current;
+            SetDataArray(Array.from(tempDataArray)); 
+            await WaitTime(100);
+        }
+        
+    }
+
+    const QuickSort = async() =>{
+        
+    }
 
 
     return(

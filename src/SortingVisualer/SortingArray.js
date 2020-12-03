@@ -6,10 +6,10 @@ function SortingArray(props){
     const CreateDivs = () => {
         const divarray = [];
         for (var i=0; i < props.DataArray.length; i++){
-            /*if (props.sortedColour.includes(props.DataArray)){
+            if (props.sortedColour.includes(props.DataArray[i]) || props.sortedColour.includes(i)){
                 divarray.push(<div className="div" style={{width: (100/props.DataArray.length - 0.4)+ "vw" , height: (0.6*props.DataArray[i]) + "vh", backgroundColor: "green"}}></div>);
-            }*/
-            if (props.checkcolour.includes(i)){
+            }
+            else if (props.checkcolour.includes(i)){
                 divarray.push(<div className="div" style={{width: (100/props.DataArray.length - 0.4)+ "vw" , height: (0.6*props.DataArray[i]) + "vh", backgroundColor: "purple"}}></div>);
             }
             else{

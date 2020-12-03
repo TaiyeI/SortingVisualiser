@@ -11,6 +11,7 @@ function SortingVis(){
     const [currentAlgorithm, setCurrentAlgorithm] = useState('0')
     var arraySize = 5
     
+    
 
     const RandomArray = () =>{
         arraySize = 2 + Math.floor(Math.random()*100);
@@ -83,11 +84,14 @@ function SortingVis(){
                     
                 }
                 await WaitTime(300); 
-                setsortedColour([]);
+                //setsortedColour([]);
                 
             }        
         }
-        //setsortedColour(Array.from(DataArray));
+        setcheckcolour([]);
+        setsortedColour(Array.from(DataArray));
+        await WaitTime(1000);
+        setsortedColour([]);
     }
 
     const MergeSort = async() =>{
@@ -96,18 +100,22 @@ function SortingVis(){
 
     const InsertionSort = async() =>{
         var x = DataArray.length
+        var tempcolour = [];
         for (var i=0; i < x; i++){
             var tempDataArray = DataArray;
-            var current = DataArray[i];
+            var current = tempDataArray[i];
             while  (i>0 && tempDataArray[i-1] > current){
                 tempDataArray[i] = tempDataArray[i-1];
                 i = i-1;
             }
             tempDataArray[i] = current;
+            tempcolour.push(i)
             SetDataArray(Array.from(tempDataArray)); 
             await WaitTime(100);
+            setsortedColour(Array.from(tempcolour));
         }
-        
+        await WaitTime(100);
+        setsortedColour([]);
     }
 
     const QuickSort = async() =>{
@@ -135,6 +143,7 @@ function SortingVis(){
                         <label>Array Size</label>
                         <input type="text" onChange={e => {arraychange(e.target.value)}}></input>
                         <button onClick={RandomArray}>Generate Random Array</button>
+                        <labal>Sorting speed</labal>
                     </div>
             </div>
             <SortingArray  DataArray={DataArray}  checkcolour={checkcolour} sortedColour={sortedColour}/>

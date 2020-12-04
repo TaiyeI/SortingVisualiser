@@ -4,12 +4,13 @@ import './SortingVis.css'
  
 function SortingVis(){
 
-    const sortSpeed = 1;
+    const sortSpeed = 100 - x;
     const [DataArray, SetDataArray] = useState([50, 20, 11, 70]);
     const [checkcolour, setcheckcolour] = useState([]);
     const [sortedColour, setsortedColour] = useState([]);
     const [currentAlgorithm, setCurrentAlgorithm] = useState('0')
     var arraySize = 5
+    var x;
     
     
 
@@ -147,11 +148,11 @@ function SortingVis(){
                         <input type="text" onChange={e => {arraychange(e.target.value)}}></input>
                         <button onClick={RandomArray}>Generate Random Array</button>
                         <label>Sorting speed</label>
-                        <input type="range" min="1" max="100" value="50" className="slider"></input>
-                        <div className="slidecontainer">
-                            
-                        </div>
                     </div>
+                    <div className="slidecontainer">
+                        <input type="range" min="1" max="100" value="50" className="slider"></input>
+                    </div>
+                    
             </div>
             <SortingArray  DataArray={DataArray}  checkcolour={checkcolour} sortedColour={sortedColour}/>
 

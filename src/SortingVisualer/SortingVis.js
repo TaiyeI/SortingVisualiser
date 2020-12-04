@@ -5,7 +5,7 @@ import './SortingVis.css'
 function SortingVis(){
 
     const sortSpeed = 1;
-    const [DataArray, SetDataArray] = useState([]);
+    const [DataArray, SetDataArray] = useState([50, 20, 11, 70]);
     const [checkcolour, setcheckcolour] = useState([]);
     const [sortedColour, setsortedColour] = useState([]);
     const [currentAlgorithm, setCurrentAlgorithm] = useState('0')
@@ -112,9 +112,12 @@ function SortingVis(){
             tempcolour.push(i)
             SetDataArray(Array.from(tempDataArray)); 
             await WaitTime(100);
-            setsortedColour(Array.from(tempcolour));
+            setcheckcolour(Array.from(tempcolour));
         }
         await WaitTime(100);
+        setcheckcolour([]);
+        setsortedColour(Array.from(DataArray));
+        await WaitTime(1000);
         setsortedColour([]);
     }
 
@@ -139,11 +142,15 @@ function SortingVis(){
                             <option value="1">MergeSort</option>
                             <option value="2">QuickSort</option>
                             <option value="3">InsertionSort</option>
-                        </select>
+                        </select>s
                         <label>Array Size</label>
                         <input type="text" onChange={e => {arraychange(e.target.value)}}></input>
                         <button onClick={RandomArray}>Generate Random Array</button>
-                        <labal>Sorting speed</labal>
+                        <label>Sorting speed</label>
+                        <input type="range" min="1" max="100" value="50" className="slider"></input>
+                        <div className="slidecontainer">
+                            
+                        </div>
                     </div>
             </div>
             <SortingArray  DataArray={DataArray}  checkcolour={checkcolour} sortedColour={sortedColour}/>

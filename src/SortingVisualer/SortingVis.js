@@ -95,9 +95,34 @@ function SortingVis(){
         setsortedColour([]);
     }
 
-    const MergeSort = async() =>{
+    /*const MergeSort = async(DataArray) =>{
+        var result = []
+        if (DataArray.length < 2){
+            return DataArray
+        }
+        var mid = math.floor(DataArray.length /2)
+        y = MergeSort(DataArray[:mid])
+        z = MergeSort(DataArray[:mid])
+        l = 0
+        j = 0
+        while (l < y.length && j < z.length){
+            if y[l]>z[j]{
+                result.push(z[j])
+                j += 1
+            }
+            else{
+                result.push(y[l])
+                l += 1
+            }
+        }
+        result += y[l:]
+        result += z[j:]
+        return result
+        results = MergeSort(DataArray)
+        return results
+
         
-    }
+    }*/
 
     const InsertionSort = async() =>{
         var x = DataArray.length
